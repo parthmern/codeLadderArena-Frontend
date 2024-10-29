@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "GeistSans";
+  src: url("./assets/webfonts/Geist-Medium.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "logoFont";
+  src: url("./assets/webfonts/cd-semi.otf") ;
+}
+
+.geist-sans {
+  font-family: "GeistSans", sans-serif;
+}
+
+.logoFont {
+  font-family: "logoFont", monospace;
+}
