@@ -33,14 +33,14 @@ export const Problemspage = () => {
     <div className='bg-black h-[100vh] relative overflow-x-hidden '>
         <Navbar />
         <ProblemHeader />
-        <div className='p-5'>
+        <div className='p-10'>
             {
                 allProblems && (
                     <>
                     {
                         allProblems.map((problem, index)=>{
                             return(
-                                <SingleQue prop={problem} number={index+1} />
+                                <SingleQue key={index} prop={problem} number={index+1} />
                             )
                         })
                     }

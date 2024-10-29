@@ -1,6 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 export const HeroSection = () => {
+  const navigate = useNavigate();
   return (
     <div className="w-full z-[999] h-[100%] flex flex-col items-center justify-center">
       <div></div>
@@ -9,7 +11,7 @@ export const HeroSection = () => {
         Revolutionize your coding practice with the new platform
       </div>
 
-      <div className="mt-5 geist-sans">
+      <div onClick={()=>{navigate("/problems")}} className="mt-5 geist-sans">
         <button className=" no-underline group cursor-pointer relative shadow-2xl shadow-zinc-900 rounded-full p-px   leading-6  text-white inline-block">
           <span className="absolute inset-0 overflow-hidden rounded-full">
             <span className="absolute inset-0 rounded-full bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.6)_0%,rgba(56,189,248,0)_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
