@@ -8,8 +8,8 @@ export const Navbar = () => {
     const userId = useRecoilValue(userIdAtom);
 
   return (
-    <div className='w-full backdrop-blur-sm bg-[#05050a] text-white geist-sans h-[50px] flex items-center justify-between px-10'>
-        <p className={`logoFont`}>CodeLadderArena</p>
+    <div className='w-full absolute transparentBg z-[9999]  bg-[#05050a] text-white geist-sans h-[50px] flex items-center justify-between px-10'>
+        <p className={`logoFont text-shadow-md `}>CodeLadderArena</p>
         <p className='geist-sans'>Questions</p>
         <div>
             {

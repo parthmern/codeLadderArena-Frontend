@@ -2,6 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
+*{
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+:root {
+  --custom-dark-color: rgb(9, 9, 15);
+}
+
+.my-element {
+  background: radial-gradient(40% 85% at 50% 95%, rgba(5, 10, 20, 0.16) 0%, var(--custom-dark-color) 100%);
+  flex: none;
+  inset: -5px -18px -20px;
+  overflow: visible;
+  position: absolute;
+  z-index: 0;
+}
+
+
 @font-face {
   font-family: "GeistSans";
   src: url("./assets/webfonts/Geist-Medium.woff2") format("woff2");
@@ -18,4 +37,30 @@
 
 .logoFont {
   font-family: "logoFont", monospace;
+}
+
+.transparentBg{
+  /* From https://css.glass */
+background: rgba(0, 0, 0, 0.1);
+
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5.1px);
+-webkit-backdrop-filter: blur(5.1px);
+border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.bounce {
+  animation: bounce-animation 5s linear infinite;
+  transform-origin: bottom;
+}
+
+@keyframes bounce-animation {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-50px); }
+  100% { transform: translateY(0); }
+}
+
+.imgShadow {
+  -webkit-filter: drop-shadow(5px 5px 5px #222);
+  filter: drop-shadow(5px 5px 5px #222);
 }

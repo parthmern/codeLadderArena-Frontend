@@ -4,7 +4,7 @@ module.exports = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
- 
+
     // Or if using `src` directory:
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
@@ -12,6 +12,7 @@ module.exports = {
     extend: {
       animation: {
         spotlight: "spotlight 2s ease .75s 1 forwards",
+        shine: "shine var(--duration) infinite linear",
       },
       keyframes: {
         spotlight: {
@@ -22,6 +23,17 @@ module.exports = {
           "100%": {
             opacity: 1,
             transform: "translate(-50%,-40%) scale(1)",
+          },
+        },
+        shine: {
+          "0%": {
+            "background-position": "0% 0%",
+          },
+          "50%": {
+            "background-position": "100% 100%",
+          },
+          "100%": {
+            "background-position": "0% 0%",
           },
         },
       },

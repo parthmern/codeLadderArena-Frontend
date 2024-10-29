@@ -2,7 +2,7 @@ import React from "react";
 
 export const HeroSection = () => {
   return (
-    <div className="w-full z-[999] h-[80%] flex flex-col items-center justify-center">
+    <div className="w-full z-[999] h-[100%] flex flex-col items-center justify-center">
       <div></div>
 
       <div className="geist-sans z-30 text-[40px] font-semibold text-white right-0 text-center w-[30%] mr-0">
