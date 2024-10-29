@@ -5,7 +5,7 @@ export const AbstractImgOne = () => {
     <div>
 
         {/* eslint-disable-next-line react/style-prop-object, jsx-a11y/alt-text */}
-        <img className=' absolute top-0 z-[1] ' src="https://framerusercontent.com/images/VAghYRak1orJZWcevSJLQXlxmM.svg" ></img>
+        <img className=' absolute top-0 z-[5]  left-[-50px]' src="https://framerusercontent.com/images/VAghYRak1orJZWcevSJLQXlxmM.svg" ></img>
 
     </div>
 )}
