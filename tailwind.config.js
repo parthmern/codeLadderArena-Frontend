@@ -4,7 +4,7 @@ module.exports = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
-
+    
     // Or if using `src` directory:
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
@@ -13,6 +13,7 @@ module.exports = {
       animation: {
         spotlight: "spotlight 2s ease .75s 1 forwards",
         shine: "shine var(--duration) infinite linear",
+        meteor: "meteor 5s linear infinite",  // Added meteor animation
       },
       keyframes: {
         spotlight: {
@@ -34,6 +35,14 @@ module.exports = {
           },
           "100%": {
             "background-position": "0% 0%",
+          },
+        },
+        meteor: {  // Added meteor keyframes
+          "0%": { transform: "rotate(215deg) translateX(0)", opacity: 1 },
+          "70%": { opacity: 1 },
+          "100%": {
+            transform: "rotate(215deg) translateX(-500px)",
+            opacity: 0,
           },
         },
       },
