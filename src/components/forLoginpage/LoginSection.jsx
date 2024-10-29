@@ -2,18 +2,29 @@
 import React from "react";
 import { signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged } from "firebase/auth";
 import auth from "../../utils/firebaseSetup";
+import { useRecoilState } from "recoil";
+import { loggedinUser } from "../../recoil/atoms";
+import { useNavigate } from "react-router-dom";
 
 export const LoginSection = () => {
 
+  const [user, setUser] = useRecoilState(loggedinUser);
+  console.log("user=>", user);
+  const navigate = useNavigate();
+
     async function loginHandler() {
         console.log("login btn clicked");
+        console.log("user=>", user);
 
         try{
         const provider = new GoogleAuthProvider()
         const result = await signInWithPopup(auth, provider)
         
         console.log("==>", result);
-        const { displayName, email, photoURL } = result.user;
+        const { displayName, email } = result.user;
+        setUser({ displayName, email });
+        navigate("/problems");
+        
         }catch(error){
             console.log("error", error);
         }

@@ -5,13 +5,15 @@ import {
   useRecoilValue,
   useRecoilValueLoadable,
 } from "recoil";
-import { userId as userIdAtom } from "../../recoil/atoms";
+import { loggedinUser } from "../../recoil/atoms";
 import { useNavigate } from "react-router-dom";
+import { CircleUser } from "lucide-react";
 
 export const Navbar = () => {
   const navigate = useNavigate();
 
-  const userId = useRecoilValue(userIdAtom);
+  const userId = useRecoilValue(loggedinUser);
+  console.log(userId);
 
   return (
     <div className="w-full absolute transparentBg z-[9999]  bg-[#05050a] text-white geist-sans h-[50px] flex items-center justify-between px-10">
@@ -19,7 +21,7 @@ export const Navbar = () => {
       <p className="geist-sans">Questions</p>
       <div>
         {userId ? (
-          <p>{userId}</p>
+          <div className="flex gap-x-2"><CircleUser className="size-5" /><p>{userId.displayName}</p></div>
         ) : (
           <button
             onClick={() => {

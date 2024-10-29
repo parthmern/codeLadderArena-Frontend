@@ -1,6 +1,6 @@
 import {atom, atomFamily, selector, selectorFamily} from "recoil";
 
-export const userId = atom(
+export const loggedinUser = atom(
     {
         key : "userId",  
         default : null ,     
