@@ -22,7 +22,7 @@ export const Homepage = () => {
         <StarImgOne />
         <StarImgTwo />
         <StarImgThree />
-        <div className='absolute z-[99999] pb-10 w-[100%] mx-auto px-auto'>
+        <div className='absolute  z-[99999] pb-10 w-[100%] mx-auto px-auto'>
           <HeroVideoDialogBox />
           <VideoImgOne />
           <VideoImgTwo />
