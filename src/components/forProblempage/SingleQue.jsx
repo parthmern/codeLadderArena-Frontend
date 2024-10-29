@@ -11,7 +11,7 @@ export const SingleQue = ({ prop: { _id: id, title, difficulty }, number }) => {
     <div onClick={()=>{
         console.log(id);
         naviagte(`/solve/${id}`);
-    }} className='geist-sans mb-5 hover:bg-[#d9edfe25] transition-all duration-200 p-3 flex items-center justify-between font-[100] border-[1px] border-gray-300 rounded-xl text-white'>
+    }} className='cursor-pointer geist-sans mb-5 hover:bg-[#d9edfe25] transition-all duration-200 p-3 flex items-center justify-between font-[100] border-[1px] border-gray-300 rounded-xl text-white'>
 
         <div> 
             {`${number} |  ${title}`}
