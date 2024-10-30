@@ -3,14 +3,36 @@ import React from "react";
 import { signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged } from "firebase/auth";
 import auth from "../../utils/firebaseSetup";
 import { useRecoilState } from "recoil";
-import { loggedinUser } from "../../recoil/atoms";
+import { loggedinUser, authToken } from "../../recoil/atoms";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { authUser } from "../../utils/apiUrls";
 
 export const LoginSection = () => {
 
   const [user, setUser] = useRecoilState(loggedinUser);
-  console.log("user=>", user);
+  const [token, setToken] =  useRecoilState(authToken);
+
+  console.log("user=>", user, token);
   const navigate = useNavigate();
+
+  const setUserDataAndTokenInLocalStorage = (user, token) => {
+    const expirationTime = Date.now() + 24 * 60 * 60 * 1000; // 24 hours in milliseconds
+    
+    const userData = { 
+        value: user, 
+        expirationTime 
+    };
+    
+    const tokenData = { 
+        value: token, 
+        expirationTime 
+    };
+
+    localStorage.setItem("userData", JSON.stringify(userData));
+    localStorage.setItem("tokenData", JSON.stringify(tokenData));
+};
+
 
     async function loginHandler() {
         console.log("login btn clicked");
@@ -22,7 +44,25 @@ export const LoginSection = () => {
         
         console.log("==>", result);
         const { displayName, email } = result.user;
-        setUser({ displayName, email });
+
+        console.log("authenticating ...");
+
+        const res = await axios.post(authUser, {
+          name : displayName,
+          email : email
+        }, { withCredentials: true });
+
+        console.log("authenticaton done", res);
+
+        // console.log(res?.data?.token);
+
+        // localstorageSetterFunction
+        // localStorage.setItem("userData", JSON.stringify(res?.data?.user));
+        // localStorage.setItem("token", JSON.stringify(res?.data?.token));
+        setUserDataAndTokenInLocalStorage(res?.data?.user, res?.data?.token);
+
+        setUser(res?.data?.user);
+        setToken(res?.data?.token);
         navigate("/problems");
         
         }catch(error){

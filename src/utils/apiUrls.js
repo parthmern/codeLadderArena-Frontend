@@ -5,7 +5,10 @@ problemServiceUrl = problemServiceUrl + apiVersion ;
 
 const getProblems = problemServiceUrl + 'problems';
 
+const authUser = problemServiceUrl + 'auth/login';
+
 export {
     problemServiceUrl,
-    getProblems
+    getProblems,
+    authUser
 }
