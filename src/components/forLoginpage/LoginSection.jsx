@@ -31,6 +31,8 @@ export const LoginSection = () => {
 
     localStorage.setItem("userData", JSON.stringify(userData));
     localStorage.setItem("tokenData", JSON.stringify(tokenData));
+
+    console.log("JSON.parse(localStorage.getItem", JSON.parse(localStorage.getItem("userData")) );
 };
 
 
@@ -43,13 +45,13 @@ export const LoginSection = () => {
         const result = await signInWithPopup(auth, provider)
         
         console.log("==>", result);
-        const { displayName, email } = result.user;
+        const { displayName, email:mail } = result.user;
 
         console.log("authenticating ...");
 
         const res = await axios.post(authUser, {
           name : displayName,
-          email : email
+          email : mail
         }, { withCredentials: true });
 
         console.log("authenticaton done", res);
@@ -59,7 +61,8 @@ export const LoginSection = () => {
         // localstorageSetterFunction
         // localStorage.setItem("userData", JSON.stringify(res?.data?.user));
         // localStorage.setItem("token", JSON.stringify(res?.data?.token));
-        setUserDataAndTokenInLocalStorage(res?.data?.user, res?.data?.token);
+        const {email, name, _id:id} = res?.data?.user;
+        setUserDataAndTokenInLocalStorage({email, name, id}, res?.data?.token);
 
         setUser(res?.data?.user);
         setToken(res?.data?.token);

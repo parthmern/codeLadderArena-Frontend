@@ -7,6 +7,7 @@ const getUserDataFromLocalStorage = () => {
         if (userData && Date.now() < userData.expirationTime) {
             return userData.value;
         } else {
+            console.log("userData not available in localstorage");
             localStorage.removeItem("userData"); // Remove expired user data
             return null;
         }
@@ -24,6 +25,7 @@ const getTokenFromLocalStorage = () => {
         if (tokenData && Date.now() < tokenData.expirationTime) {
             return tokenData.value;
         } else {
+            console.log("tokenData not available in localstorage");
             localStorage.removeItem("tokenData"); // Remove expired token
             return null;
         }

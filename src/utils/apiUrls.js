@@ -7,8 +7,11 @@ const getProblems = problemServiceUrl + 'problems';
 
 const authUser = problemServiceUrl + 'auth/login';
 
+const verifyToken = problemServiceUrl + 'auth/verifyToken';
+
 export {
     problemServiceUrl,
     getProblems,
-    authUser
+    authUser,
+    verifyToken
 }
