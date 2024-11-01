@@ -9,9 +9,12 @@ const authUser = problemServiceUrl + 'auth/login';
 
 const verifyToken = problemServiceUrl + 'auth/verifyToken';
 
+const getSingleProblem = getProblems ;
+
 export {
     problemServiceUrl,
     getProblems,
     authUser,
-    verifyToken
+    verifyToken,
+    getSingleProblem
 }
