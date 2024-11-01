@@ -43,7 +43,7 @@ export const SolveProblemPage = () => {
 
       <ProblemViewer markdown={problemDetails?.description} />
 
-      <CreatingProblem />
+      
 
     </div>
   )

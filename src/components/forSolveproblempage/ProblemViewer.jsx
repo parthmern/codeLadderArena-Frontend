@@ -44,7 +44,7 @@ export const ProblemViewer = ({ markdown }) => {
         <div className='text-white geist-sans mt-16 ml-5 w-[45%] h-[85%] bg-[#05050a] flex flex-col border-[1px] border-[#d6ebfd30] rounded-xl p-5  '>
 
     <div data-color-mode="dark">
-        <MarkdownPreview className='p-2' source={markdown} />
+        <MarkdownPreview className='p-5 rounded-xl' source={markdown} />
       </div>
 
         </div>
