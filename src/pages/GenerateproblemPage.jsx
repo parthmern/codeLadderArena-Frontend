@@ -88,7 +88,7 @@ export function GenerateproblemPage() {
 
       const res = await axios.post(createProblemUrl, problem);
       console.log(res);
-      
+
 
     }
     catch(error){
@@ -271,6 +271,13 @@ export function GenerateproblemPage() {
             console.log("creating new peoblem");
             createNewProblem();
           }} className="mx-auto w-full" variant={"destructive"} >Create New Problem</Button>
+
+          <div>
+            imp:
+            - donot use "\n" in c+++ program while creating them u can use endl
+
+          </div>
+
         </Card>
       )}
     </div>
