@@ -275,6 +275,7 @@ export function GenerateproblemPage() {
           <div>
             imp:
             - donot use "\n" in c+++ program while creating them u can use endl
+            - avoid to use '' or "" anyhting in code and comments
 
           </div>
 

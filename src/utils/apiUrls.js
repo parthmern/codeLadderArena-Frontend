@@ -13,11 +13,18 @@ const getSingleProblem = getProblems ;
 
 const createProblemUrl = getProblems;
 
+let submisssionService = process.env.REACT_APP_SUBMISSION_SERVICE_URL; 
+
+submisssionService = submisssionService + apiVersion ;
+
+const submitProblemUrl = submisssionService + "submission";
+
 export {
     problemServiceUrl,
     getProblems,
     authUser,
     verifyToken,
     getSingleProblem,
-    createProblemUrl
+    createProblemUrl,
+    submitProblemUrl
 }

@@ -60,11 +60,11 @@
   }
 }
 
-
+/* 
 *, body{
   box-sizing: border-box;
   overflow-x: hidden;
-}
+} */
 
 :root {
   --custom-dark-color: rgb(9, 9, 15);

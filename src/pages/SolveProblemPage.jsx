@@ -5,6 +5,7 @@ import axios from 'axios';
 import { getSingleProblem } from '../utils/apiUrls';
 import { Navbar } from '../components/common/Navbar';
 import { CreatingProblem } from '../components/forSolveproblempage/CreatingProblem';
+import { EditorComponent } from '../components/forSolveproblempage/Editor';
 
 export const SolveProblemPage = () => {
 
@@ -37,13 +38,13 @@ export const SolveProblemPage = () => {
 
 
   return (
-    <div className='bg-black h-[100vh] relative overflow-x-hidden'>
+    <div className='bg-black h-[100vh] flex relative overflow-x-hidden'>
 
       <Navbar />
 
       <ProblemViewer markdown={problemDetails?.description} />
 
-      
+      <EditorComponent problemDetails={problemDetails} />
 
     </div>
   )
