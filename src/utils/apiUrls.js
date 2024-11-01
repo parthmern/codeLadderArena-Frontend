@@ -11,10 +11,13 @@ const verifyToken = problemServiceUrl + 'auth/verifyToken';
 
 const getSingleProblem = getProblems ;
 
+const createProblemUrl = getProblems;
+
 export {
     problemServiceUrl,
     getProblems,
     authUser,
     verifyToken,
-    getSingleProblem
+    getSingleProblem,
+    createProblemUrl
 }
