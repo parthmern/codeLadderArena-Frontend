@@ -18,6 +18,8 @@ export const SolveProblemPage = () => {
 
     const [problemDetails, setProblemDetails] = useState(null);
 
+    const [submissionRes, setSubmissionRes] = useState(null);
+
     const [socketId, setSocketId] = useState();
     console.log("socketid=>", socketId);
 
@@ -66,6 +68,7 @@ export const SolveProblemPage = () => {
 
     socket.on("submissionPayloadResponse", (data) => {
       console.log("❤️❤️❤️❤️❤️",data);
+      setSubmissionRes(data);
   })
 
     socket.on("emit", (data)=> {
@@ -80,9 +83,9 @@ export const SolveProblemPage = () => {
     }
 
   },[]);
-  
-  
 
+
+  console.log("submissionRessubmissionRessubmissionRessubmissionRes",submissionRes);
 
 
     // ==============================================================
@@ -96,7 +99,7 @@ export const SolveProblemPage = () => {
 
       <ProblemViewer markdown={problemDetails?.description} />
 
-      <EditorComponent problemDetails={problemDetails} />
+      <EditorComponent problemDetails={problemDetails} submissionRes={submissionRes} />
 
     </div>
   )

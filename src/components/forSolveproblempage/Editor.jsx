@@ -16,7 +16,7 @@ import { Testcases } from './Testcases';
 import { currentSubmissionWithProblemId, loggedinUser } from '../../recoil/atoms';
 import { useRecoilState, useRecoilValue } from 'recoil';
 
-export const EditorComponent = ({ problemDetails }) => {
+export const EditorComponent = ({ problemDetails, submissionRes }) => {
 
     console.log("problemDetails inside Edito=>", problemDetails);
 
@@ -117,7 +117,7 @@ export const EditorComponent = ({ problemDetails }) => {
             <div className='h-[40vh] '>
                 {
                     problemDetails && (
-                        <Testcases testCases={problemDetails?.testCases} />
+                        <Testcases submissionRes={submissionRes} testCases={problemDetails?.testCases} />
                     )
                 }
             </div>
