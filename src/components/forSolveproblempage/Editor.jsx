@@ -12,6 +12,7 @@ import {
 import { Button } from '../shadcn/ButtonVarients';
 import axios from 'axios';
 import { submitProblemUrl } from '../../utils/apiUrls';
+import { Testcases } from './Testcases';
 
 export const EditorComponent = ({ problemDetails }) => {
 
@@ -24,21 +25,21 @@ export const EditorComponent = ({ problemDetails }) => {
     console.log(language);
 
 
-    async function codeSubmission(){
+    async function codeSubmission() {
 
-        try{
+        try {
 
             const res = await axios.post(submitProblemUrl, {
-                code : code,
-                userId : "123", 
-                problemId : problemDetails?._id,
-                language : language.toUpperCase()
+                code: code,
+                userId: "123",
+                problemId: problemDetails?._id,
+                language: language.toUpperCase()
             })
 
             console.log(res);
 
         }
-        catch(error){
+        catch (error) {
 
             console.log("eroror=>", error);
         }
@@ -46,13 +47,13 @@ export const EditorComponent = ({ problemDetails }) => {
 
     }
 
-    useEffect(()=>{
+    useEffect(() => {
 
         setCode(problemDetails?.codeStubs?.find(
             (stub) => stub?.language.toLowerCase() === language?.toLowerCase()
-        )?.userSnippet );
+        )?.userSnippet);
 
-        
+
 
     }, [problemDetails, language]);
 
@@ -60,41 +61,49 @@ export const EditorComponent = ({ problemDetails }) => {
     return (
 
 
-        <div className='text-white geist-sans mt-16 ml-5 w-[45%] h-[85%] bg-[#05050a] flex flex-col border-[1px] border-[#d6ebfd30] rounded-xl p-5  '>
+        <div className='text-white geist-sans mt-16 ml-5 w-[50%] h-[88%] bg-[#05050a] flex flex-col border-[1px] border-[#d6ebfd30] rounded-xl p-5  '>
 
-            <div className='text-black'>
-                <Select defaultValue={language} onValueChange={(value)=>{setLanguage(value)}}>
-                    <SelectTrigger className="w-[180px]">
-                        <SelectValue  />
+            <div className='text-black geist-sans pb-4 flex w-full items-center justify-between '>
+                <Select defaultValue={language} onValueChange={(value) => { setLanguage(value) }}>
+                    <SelectTrigger className="w-[100px]">
+                        <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
                         <SelectGroup>
-                            <SelectItem value="cpp">CPP</SelectItem>
-                            <SelectItem value="python">PYTHON</SelectItem>
-                            <SelectItem value="java">JAVA</SelectItem>
+                            <SelectItem className="geist-sans" value="cpp">CPP</SelectItem>
+                            <SelectItem className="geist-sans" value="python">PYTHON</SelectItem>
+                            <SelectItem className="geist-sans" value="java">JAVA</SelectItem>
                         </SelectGroup>
                     </SelectContent>
                 </Select>
 
-                <Button onClick={()=>{
+                <Button className="h-8 bg-green-600" onClick={() => {
                     codeSubmission();
                 }} >Submit</Button>
 
             </div>
 
-            <div>
+            <div className=' overflow-x-hidden  h-full '>
                 {
                     code && (
                         <Editor
-                height="90vh"
-                defaultLanguage="cpp"
-                defaultValue={code}
-                theme="vs-dark"
-                onChange={(newCode) => {
-                    setCode(newCode);
-                }}
-                value={code}
-            />
+                            className=' border-[1px]  border-[#d6ebfd30]  '
+                            defaultLanguage="cpp"
+                            defaultValue={code}
+                            theme="vs-dark"
+                            onChange={(newCode) => {
+                                setCode(newCode);
+                            }}
+                            value={code}
+                        />
+                    )
+                }
+            </div>
+
+            <div className='h-[40vh] '>
+                {
+                    problemDetails && (
+                        <Testcases testCases={problemDetails?.testCases} />
                     )
                 }
             </div>
