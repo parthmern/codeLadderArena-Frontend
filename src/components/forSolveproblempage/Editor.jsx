@@ -13,10 +13,14 @@ import { Button } from '../shadcn/ButtonVarients';
 import axios from 'axios';
 import { submitProblemUrl } from '../../utils/apiUrls';
 import { Testcases } from './Testcases';
+import { loggedinUser } from '../../recoil/atoms';
+import { useRecoilValue } from 'recoil';
 
 export const EditorComponent = ({ problemDetails }) => {
 
     console.log("problemDetails inside Edito=>", problemDetails);
+
+    const {id : userId} = useRecoilValue(loggedinUser);
 
     const [code, setCode] = useState(null);
     console.log(code);
@@ -31,7 +35,7 @@ export const EditorComponent = ({ problemDetails }) => {
 
             const res = await axios.post(submitProblemUrl, {
                 code: code,
-                userId: "123",
+                userId: userId,
                 problemId: problemDetails?._id,
                 language: language.toUpperCase()
             })
