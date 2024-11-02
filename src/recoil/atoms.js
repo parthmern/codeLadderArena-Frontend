@@ -46,3 +46,7 @@ export const authToken = atom({
     default: getTokenFromLocalStorage() || null,
 });
 
+export const currentSubmissionWithProblemId = atom({
+    key : "currentSubmissionWithProblemId",
+    default : null 
+})

@@ -13,12 +13,15 @@ import { Button } from '../shadcn/ButtonVarients';
 import axios from 'axios';
 import { submitProblemUrl } from '../../utils/apiUrls';
 import { Testcases } from './Testcases';
-import { loggedinUser } from '../../recoil/atoms';
-import { useRecoilValue } from 'recoil';
+import { currentSubmissionWithProblemId, loggedinUser } from '../../recoil/atoms';
+import { useRecoilState, useRecoilValue } from 'recoil';
 
 export const EditorComponent = ({ problemDetails }) => {
 
     console.log("problemDetails inside Edito=>", problemDetails);
+
+    const [cuuSubWithpId, setCuuSubWithpId] = useRecoilState(currentSubmissionWithProblemId);
+    console.log("cuuSubWithpId=>", cuuSubWithpId);
 
     const {id : userId} = useRecoilValue(loggedinUser);
 
@@ -41,6 +44,13 @@ export const EditorComponent = ({ problemDetails }) => {
             })
 
             console.log(res);
+
+            setCuuSubWithpId(
+                {
+                    problemId : problemDetails?._id ,
+                    submissionId : res?.data?.data?.submission?._id
+                }
+            )
 
         }
         catch (error) {
