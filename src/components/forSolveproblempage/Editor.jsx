@@ -103,6 +103,7 @@ export const EditorComponent = ({ problemDetails, submissionRes }) => {
                         <Editor
                             className=' border-[1px]  border-[#d6ebfd30]  '
                             defaultLanguage="cpp"
+                            language={language}
                             defaultValue={code}
                             theme="vs-dark"
                             onChange={(newCode) => {

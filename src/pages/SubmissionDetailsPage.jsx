@@ -5,12 +5,15 @@ import { EditorComponent } from '../components/forSolveproblempage/Editor'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import {submissionDetailsUrl} from "../utils/apiUrls"
+import { EditorForsubmissiondetails } from '../components/forSubmissiondetailspage/EditorForsubmissiondetails'
 
 export const SubmissionDetailsPage = () => {
 
     const {submissionId} = useParams();
 
     const [submissionDetails, setSubmissionDetails] = useState(null);
+
+    console.log("==============================================submissionDetails", submissionDetails);
 
     async function fetchSubmissionDetails(){
 
@@ -46,6 +49,7 @@ export const SubmissionDetailsPage = () => {
       <ProblemViewer markdown={submissionDetails?.problemId?.description} />
 
       {/* <EditorComponent problemDetails={problemDetails} submissionRes={submissionRes} /> */}
+      <EditorForsubmissiondetails  submissionDetails={submissionDetails}  />
 
     </div>
   )
