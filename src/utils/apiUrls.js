@@ -21,6 +21,8 @@ const submitProblemUrl = submisssionService + "submission";
 
 let submissionDetailsUrl = problemServiceUrl + "submissionDetails";
 
+const allSubmissionsUrl = submissionDetailsUrl + "/user";
+
 export {
     problemServiceUrl,
     getProblems,
@@ -29,5 +31,6 @@ export {
     getSingleProblem,
     createProblemUrl,
     submitProblemUrl,
-    submissionDetailsUrl
+    submissionDetailsUrl,
+    allSubmissionsUrl
 }

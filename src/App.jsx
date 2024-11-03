@@ -6,6 +6,7 @@ import { Problemspage } from "./pages/Problemspage";
 import { SolveProblemPage } from "./pages/SolveProblemPage";
 import { GenerateproblemPage } from "./pages/GenerateproblemPage";
 import { SubmissionDetailsPage } from "./pages/SubmissionDetailsPage";
+import { AllSubmissionPage } from "./pages/AllSubmissionPage";
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
       <Route path="/solve/:problemId" element={<SolveProblemPage />} />
       <Route path="/generate" element={<GenerateproblemPage />} />
       <Route path="/submissionDetails/:submissionId" element={<SubmissionDetailsPage />} />
+      <Route path="/allSubmissions" element={<AllSubmissionPage />} />
     </Routes>
   );
 }

@@ -19,7 +19,8 @@ export const Navbar = () => {
   return (
     <div className="w-full absolute transparentBg z-[9999]  bg-[#05050a] text-white geist-sans h-[50px] flex items-center justify-between px-10">
       <p onClick={()=>{navigate("/")}} className={`logoFont cursor-pointer imgShadow text-xl `}>CodeLadderArena</p>
-      <p onClick={()=>{navigate("/problems")}}  className="geist-sans cursor-pointer hover:text-blue-400 ml-[-100px] ">Problems</p>
+      <p onClick={()=>{navigate("/problems")}}  className="geist-sans cursor-pointer hover:text-blue-400 ">Problems</p>
+      <p onClick={()=>{navigate("/allSubmissions")}}  className="geist-sans cursor-pointer hover:text-blue-400">My submissions</p>
       <div>
         {userId ? (
           <div className="flex gap-x-2"><CircleUser className="size-5" /><p>{userId.name}</p></div>
