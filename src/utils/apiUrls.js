@@ -23,6 +23,8 @@ let submissionDetailsUrl = problemServiceUrl + "submissionDetails";
 
 const allSubmissionsUrl = submissionDetailsUrl + "/user";
 
+const getSubmissionByUserAndProblemUrl = submissionDetailsUrl;
+
 export {
     problemServiceUrl,
     getProblems,
@@ -32,5 +34,6 @@ export {
     createProblemUrl,
     submitProblemUrl,
     submissionDetailsUrl,
-    allSubmissionsUrl
+    allSubmissionsUrl,
+    getSubmissionByUserAndProblemUrl
 }

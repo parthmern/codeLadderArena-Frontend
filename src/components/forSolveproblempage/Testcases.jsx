@@ -18,7 +18,7 @@ export function Testcases({testCases, submissionRes}) {
     useEffect(()=>{
 
         if(submissionRes){
-            setSubmissionResults(submissionRes?.results);
+          setSubmissionResults(submissionRes?.results);
         }
 
     }, [submissionRes]);
