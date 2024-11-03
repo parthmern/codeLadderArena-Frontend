@@ -5,6 +5,7 @@ import { Loginpage } from "./pages/Loginpage";
 import { Problemspage } from "./pages/Problemspage";
 import { SolveProblemPage } from "./pages/SolveProblemPage";
 import { GenerateproblemPage } from "./pages/GenerateproblemPage";
+import { SubmissionDetailsPage } from "./pages/SubmissionDetailsPage";
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <Route path="/problems" element={<Problemspage/>} />
       <Route path="/solve/:problemId" element={<SolveProblemPage />} />
       <Route path="/generate" element={<GenerateproblemPage />} />
+      <Route path="/submissionDetails/:submissionId" element={<SubmissionDetailsPage />} />
     </Routes>
   );
 }

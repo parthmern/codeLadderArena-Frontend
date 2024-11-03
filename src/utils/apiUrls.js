@@ -19,6 +19,8 @@ submisssionService = submisssionService + apiVersion ;
 
 const submitProblemUrl = submisssionService + "submission";
 
+let submissionDetailsUrl = problemServiceUrl + "submissionDetails";
+
 export {
     problemServiceUrl,
     getProblems,
@@ -26,5 +28,6 @@ export {
     verifyToken,
     getSingleProblem,
     createProblemUrl,
-    submitProblemUrl
+    submitProblemUrl,
+    submissionDetailsUrl
 }
