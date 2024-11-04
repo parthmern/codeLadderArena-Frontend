@@ -9,6 +9,7 @@ import { EditorComponent } from '../components/forSolveproblempage/Editor';
 import { io } from 'socket.io-client';
 import { useRecoilValue } from 'recoil';
 import { loggedinUser } from '../recoil/atoms';
+import toast from 'react-hot-toast';
 
 export const SolveProblemPage = () => {
 
@@ -34,10 +35,12 @@ export const SolveProblemPage = () => {
         console.log(res?.data?.data);
         setProblemDetails(res?.data?.data);
 
+        toast.success("Problem fetched", { duration: 1000 });
 
       }
       catch(error){
         console.log("error in getting problem=>", error);
+        toast.error("Error in problem fetching");
       }
     }
 
@@ -72,6 +75,7 @@ export const SolveProblemPage = () => {
       console.log("❤️❤️❤️❤️❤️",data);
       setSubmissionRes(data);
       setInSubmissionPhase(false);
+      toast.success("Got review ❤️", { duration: 1000 });
   })
 
     socket.on("emit", (data)=> {

@@ -15,6 +15,7 @@ import axios from "axios";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import { loggedinUser, authToken } from "../recoil/atoms";
 import { verifyToken } from "../utils/apiUrls";
+import toast from "react-hot-toast";
 
 export const Homepage = () => {
   const [user, setLoggedinUser] = useRecoilState(loggedinUser);
@@ -24,18 +25,20 @@ export const Homepage = () => {
     try {
       // Make the request to verify the token
       const response = await axios.get(verifyToken, {
-        withCredentials: true, // Include cookies in the request
+        withCredentials: true, 
         headers: {
-          Authorization: `Bearer ${token}`, // Include the Bearer token
+          Authorization: `Bearer ${token}`, 
         },
       });
 
-      // If verification succeeds, no further action is needed
+      
       console.log("Token verified successfully:", response.data);
+      toast.success("Token verified successfully", { duration: 1000 });
     } catch (error) {
       console.error("Token verification failed:", error);
+      toast.error("Token verification failed");
 
-      // Set Recoil states to null if verification fails
+     
       setLoggedinUser(null);
       setAuthToken(null);
 

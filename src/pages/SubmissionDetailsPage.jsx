@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import {submissionDetailsUrl} from "../utils/apiUrls"
 import { EditorForsubmissiondetails } from '../components/forSubmissiondetailspage/EditorForsubmissiondetails'
+import toast from 'react-hot-toast'
 
 export const SubmissionDetailsPage = () => {
 
@@ -24,11 +25,15 @@ export const SubmissionDetailsPage = () => {
             console.log(res);
 
             setSubmissionDetails(res?.data);
+
+            toast.success("Got submission details", { duration: 1000 });
             
 
         }
         catch(error){
             console.log(error);
+
+            toast.error("Error in submission details");
         }
 
     }

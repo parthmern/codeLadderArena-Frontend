@@ -7,6 +7,7 @@ import { loggedinUser, authToken } from "../../recoil/atoms";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { authUser } from "../../utils/apiUrls";
+import toast from "react-hot-toast";
 
 export const LoginSection = () => {
 
@@ -40,6 +41,9 @@ export const LoginSection = () => {
         console.log("login btn clicked");
         console.log("user=>", user);
 
+        
+        var toastId = toast.loading("Authenticating ...");
+
         try{
         const provider = new GoogleAuthProvider()
         const result = await signInWithPopup(auth, provider)
@@ -47,7 +51,7 @@ export const LoginSection = () => {
         console.log("==>", result);
         const { displayName, email:mail } = result.user;
 
-        console.log("authenticating ...");
+        
 
         const res = await axios.post(authUser, {
           name : displayName,
@@ -70,7 +74,10 @@ export const LoginSection = () => {
         
         }catch(error){
             console.log("error", error);
+            toast.error("rregister failed");
         }
+
+        toast.dismiss(toastId);
 
     }
 

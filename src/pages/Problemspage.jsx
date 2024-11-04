@@ -4,6 +4,7 @@ import { getProblems } from '../utils/apiUrls'
 import axios from 'axios';
 import { ProblemHeader } from '../components/forProblempage/ProblemHeader';
 import { SingleQue } from '../components/forProblempage/SingleQue';
+import toast from 'react-hot-toast';
 
 export const Problemspage = () => {
 
@@ -12,15 +13,21 @@ export const Problemspage = () => {
 
     const fetchData = async () =>{
         console.log("fetching problems");
+
+        var toastId = toast.loading("Fetching problems");
         
         try{
             const res = await axios.get(getProblems);
             console.log(res);
             setAllProblems(res?.data?.data);
+            toast.success("Problem fetched", {duration: 1000});
         }
         catch(error){
             console.log("Error->", error);
+            toast.error("Error in problem fetching");
         }
+
+        toast.dismiss(toastId);
     }
 
     useEffect(()=>{
