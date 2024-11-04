@@ -5,24 +5,40 @@ import { useRecoilValue } from 'recoil';
 import axios from 'axios';
 import { allSubmissionsUrl } from '../../utils/apiUrls';
 import { SingleSubmissionCompo } from './SingleSubmissionCompo';
+import { useNavigate } from 'react-router-dom';
 
 export const AllsubmissionSection = () => {
     
     const {id : userId} = useRecoilValue(loggedinUser);
+    console.log("userIduserIduserIduserIduserIduserIduserId",userId);
+
+    const navigate = useNavigate();
 
     const [allSubmissions, setAllSubmissions] = useState(null);
     console.log(allSubmissions);
 
     async function fetchAllSubmissions() {
-        const res = await axios.get(`${allSubmissionsUrl}/${userId}`);
+        try{
+            const res = await axios.get(`${allSubmissionsUrl}/${userId}`);
         console.log(res);
         setAllSubmissions(res?.data?.reverse());
+        }catch(error){
+            console.log("error", error);
+            
+            navigate(0); 
+        }
     }
     
 
     useEffect(()=>{
-        fetchAllSubmissions();
-    },[])
+        console.log("userIduserIduserIduserIduserIduserIduserId",userId);
+        if (userId) { 
+            fetchAllSubmissions();
+        }else{
+            navigate(0); 
+        }
+    
+    },[userId])
 
 
     return (

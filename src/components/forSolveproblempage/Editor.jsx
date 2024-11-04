@@ -16,7 +16,7 @@ import { Testcases } from './Testcases';
 import { currentSubmissionWithProblemId, loggedinUser } from '../../recoil/atoms';
 import { useRecoilState, useRecoilValue } from 'recoil';
 
-export const EditorComponent = ({ problemDetails, submissionRes }) => {
+export const EditorComponent = ({  inSubmissionPhase, setInSubmissionPhase, problemDetails, submissionRes }) => {
 
     console.log("problemDetails inside Edito=>", problemDetails);
 
@@ -31,10 +31,14 @@ export const EditorComponent = ({ problemDetails, submissionRes }) => {
     const [language, setLanguage] = useState("cpp");
     console.log(language);
 
+    
 
     async function codeSubmission() {
 
         try {
+
+            setInSubmissionPhase(true);
+
 
             const res = await axios.post(submitProblemUrl, {
                 code: code,
@@ -56,6 +60,7 @@ export const EditorComponent = ({ problemDetails, submissionRes }) => {
         catch (error) {
 
             console.log("eroror=>", error);
+            setInSubmissionPhase(false);
         }
 
 
@@ -91,9 +96,9 @@ export const EditorComponent = ({ problemDetails, submissionRes }) => {
                     </SelectContent>
                 </Select>
 
-                <Button className="h-8 bg-green-600" onClick={() => {
+                <Button disabled={ inSubmissionPhase } className="h-8 bg-green-600" onClick={() => {
                     codeSubmission();
-                }} >Submit</Button>
+                }} >{inSubmissionPhase ? "..Pending" : "Submit"}</Button>
 
             </div>
 

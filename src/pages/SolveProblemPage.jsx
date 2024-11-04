@@ -16,6 +16,8 @@ export const SolveProblemPage = () => {
 
     const {problemId} = useParams();
 
+    const [inSubmissionPhase, setInSubmissionPhase] = useState(false);
+
     const [problemDetails, setProblemDetails] = useState(null);
 
     const [submissionRes, setSubmissionRes] = useState(null);
@@ -69,6 +71,7 @@ export const SolveProblemPage = () => {
     socket.on("submissionPayloadResponse", (data) => {
       console.log("❤️❤️❤️❤️❤️",data);
       setSubmissionRes(data);
+      setInSubmissionPhase(false);
   })
 
     socket.on("emit", (data)=> {
@@ -99,7 +102,7 @@ export const SolveProblemPage = () => {
 
       <ProblemViewer markdown={problemDetails?.description} />
 
-      <EditorComponent problemDetails={problemDetails} submissionRes={submissionRes} />
+      <EditorComponent inSubmissionPhase={inSubmissionPhase} setInSubmissionPhase={setInSubmissionPhase} problemDetails={problemDetails} submissionRes={submissionRes} />
 
     </div>
   )
