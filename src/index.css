@@ -3,6 +3,39 @@
 @tailwind utilities;
 
 
+/* ======================= */
+
+
+.problemViewer {
+  --sb-track-color: #232E33;
+  --sb-thumb-color: #161b22;
+  --sb-size: 10px;
+}
+
+.problemViewer::-webkit-scrollbar {
+  width: var(--sb-size)
+}
+
+.problemViewer::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 5px;
+}
+
+.problemViewer::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 5px;
+  border: 1px solid #37474c;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  .problemViewer {
+    scrollbar-color: var(--sb-thumb-color)
+                     var(--sb-track-color);
+  }
+}
+
+/* =============== */
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -123,3 +156,8 @@ border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   -webkit-filter: drop-shadow(5px 5px 5px #222);
   filter: drop-shadow(5px 5px 5px #222);
 }
+
+
+
+/* ================ */
+

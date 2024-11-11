@@ -29,7 +29,7 @@ export const AllsubmissionSection = () => {
         } catch (error) {
             console.log("error", error);
             toast.error("Error in submissions fetched");
-            navigate(0);
+            // navigate(0);
         }
         toast.dismiss(toastId);
     }
@@ -53,7 +53,7 @@ export const AllsubmissionSection = () => {
             <div className='px-10 mt-10'>
                 {allSubmissions && (
                     <>
-                        {allSubmissions.map((submission, index) => {
+                        {allSubmissions?.map((submission, index) => {
                             //console.log(index, submission);
                             return (
                                 <SingleSubmissionCompo submission={submission} number={index + 1} />

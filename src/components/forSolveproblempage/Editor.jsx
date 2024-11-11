@@ -80,7 +80,7 @@ export const EditorComponent = ({  inSubmissionPhase, setInSubmissionPhase, prob
     return (
 
 
-        <div className='text-white geist-sans mt-16 ml-5 w-[50%] h-[88%] bg-[#05050a] flex flex-col border-[1px] border-[#d6ebfd30] rounded-xl p-5  '>
+        <div className='text-white geist-sans mr-4 md:mr-0 mt-16 ml-2 md:ml-5 w-full md:w-[50%] h-[88%] bg-[#05050a] flex flex-col border-[1px] border-[#d6ebfd30] rounded-xl p-5  '>
 
             <div className='text-black geist-sans pb-4 flex w-full items-center justify-between '>
                 <Select defaultValue={language} onValueChange={(value) => { setLanguage(value) }}>

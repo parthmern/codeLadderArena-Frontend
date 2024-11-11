@@ -29,7 +29,7 @@ export const SingleSubmissionCompo = ({ submission, number }) => {
         }} className='cursor-pointer geist-sans mb-5 hover:bg-[#d9edfe25] transition-all duration-200 p-3 flex items-center justify-between font-[100] border-[1px] border-gray-300 rounded-xl text-white'>
 
             <div>
-                {`${number} |  ${problemId.title}`}
+                {`${number} |  ${problemId?.title}`}
                 <span className='px-2 ml-5 py-1 rounded-full text-xs font-semibold bg-blue-200 text-blue-800 dark:bg-blue-900 dark:text-blue-200'>
                     {language}
                 </span>

@@ -25,6 +25,8 @@ const allSubmissionsUrl = submissionDetailsUrl + "/user";
 
 const getSubmissionByUserAndProblemUrl = submissionDetailsUrl;
 
+const socketServiceUrl = process.env.REACT_APP_SOCKET_SERVICE_URL;
+
 export {
     problemServiceUrl,
     getProblems,
@@ -35,5 +37,6 @@ export {
     submitProblemUrl,
     submissionDetailsUrl,
     allSubmissionsUrl,
-    getSubmissionByUserAndProblemUrl
+    getSubmissionByUserAndProblemUrl,
+    socketServiceUrl
 }

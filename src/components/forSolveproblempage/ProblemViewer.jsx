@@ -47,7 +47,7 @@ export const ProblemViewer = ({ markdown }) => {
     console.log("problem id==>", problemId);
 
     return (
-        <div className='text-white overflow-x-hidden geist-sans mt-16 ml-5 w-[45%] h-[88%] bg-[#05050a] flex flex-col border-[1px] border-[#d6ebfd30] rounded-xl p-5  '>
+        <div className='problemViewer text-white overflow-x-hidden geist-sans mt-16 ml-5  md:w-[45%] h-[88%] bg-[#05050a] flex flex-col border-[1px] border-[#d6ebfd30] rounded-xl p-5  '>
 
             <div className="flex flex-wrap gap-2 mb-4">
 

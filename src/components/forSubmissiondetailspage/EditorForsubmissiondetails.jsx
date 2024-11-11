@@ -29,7 +29,7 @@ export const EditorForsubmissiondetails = ({ submissionDetails }) => {
     return (
 
 
-        <div className='text-white geist-sans mt-16 ml-5 w-[50%] h-[88%] bg-[#05050a] flex flex-col border-[1px] border-[#d6ebfd30] rounded-xl p-5  '>
+        <div className='text-white geist-sans mt-16 ml-5 md:w-[50%] h-[88%] bg-[#05050a] flex flex-col border-[1px] border-[#d6ebfd30] rounded-xl p-5  '>
 
             <div className='text-black geist-sans pb-4 flex w-full items-center justify-between '>
                <p className='bg-white px-2 py-1 rounded-md '>{submissionDetails?.language}</p>

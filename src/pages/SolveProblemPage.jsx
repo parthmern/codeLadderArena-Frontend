@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { ProblemViewer } from '../components/forSolveproblempage/ProblemViewer';
 import axios from 'axios';
-import { getSingleProblem } from '../utils/apiUrls';
+import { getSingleProblem, socketServiceUrl } from '../utils/apiUrls';
 import { Navbar } from '../components/common/Navbar';
 import { CreatingProblem } from '../components/forSolveproblempage/CreatingProblem';
 import { EditorComponent } from '../components/forSolveproblempage/Editor';
@@ -51,8 +51,9 @@ export const SolveProblemPage = () => {
     // ============================================================
     // ============================================================
 
+    const SOCKET_SERVICE_URL = socketServiceUrl;
     const socket = useMemo(()=>{
-      return io("http://localhost:4001",   {transports: ['websocket']})
+      return io(SOCKET_SERVICE_URL,   {transports: ['websocket']})
     }, [])
 
     
@@ -61,7 +62,7 @@ export const SolveProblemPage = () => {
     console.log("useeff run");
 
     socket.on("connect", ()=>{
-      console.log("connected with id", socket.id);
+      console.log("✅✅✅✅✅✅✅✅✅✅✅✅✅connected with id", socket.id);
       setSocketId(socket.id);
     })
 
@@ -100,7 +101,7 @@ export const SolveProblemPage = () => {
 
 
   return (
-    <div className='bg-black h-[100vh] flex relative overflow-x-hidden'>
+    <div className='bg-black h-[100vh] pr-4 md:flex relative overflow-x-hidden'>
 
       <Navbar />
 

@@ -47,7 +47,7 @@ export const SubmissionDetailsPage = () => {
 
 
   return (
-    <div className='bg-black h-[100vh] flex relative overflow-x-hidden'>
+    <div className='bg-black h-[100vh] md:flex relative overflow-x-hidden'>
 
       <Navbar />
 

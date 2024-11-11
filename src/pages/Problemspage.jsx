@@ -17,6 +17,7 @@ export const Problemspage = () => {
         var toastId = toast.loading("Fetching problems");
         
         try{
+            console.log("hittong on=>", getProblems);
             const res = await axios.get(getProblems);
             console.log(res);
             setAllProblems(res?.data?.data);
