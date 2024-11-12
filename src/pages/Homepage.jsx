@@ -33,6 +33,7 @@ export const Homepage = () => {
 
       
       console.log("Token verified successfully:", response.data);
+      console.log("hoempage", process.env.REACT_APP_FIREBASE_AUTH_DOMAIN, process.env.REACT_APP_SOCKET_SERVICE_URL);
       toast.success("Token verified successfully", { duration: 1000 });
     } catch (error) {
       console.error("Token verification failed:", error);
