@@ -38,11 +38,11 @@ export const LoginSection = () => {
 
 
     async function loginHandler() {
-        console.log("login btn clicked");
+        console.log("login btn clicked", process.env.REACT_APP_FIREBASE_AUTH_DOMAIN, process.env.REACT_APP_SOCKET_SERVICE_URL);
         console.log("user=>", user);
 
         
-        var toastId = toast.loading("Authenticating ...", process.env.REACT_APP_FIREBASE_AUTH_DOMAIN);
+        var toastId = toast.loading("Authenticating ...");
 
         try{
         const provider = new GoogleAuthProvider()
