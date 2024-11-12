@@ -8,7 +8,7 @@ export const HeroSection = () => {
       <div></div>
 
       <div className="geist-sans z-30 text-[20px] md:text-[40px] font-semibold text-white right-0 text-center w-[30%] mr-0">
-        Revolutionize your Coding practice with the new platform
+        Revolutionize your Coding practice with the new Platform
       </div>
 
       <div onClick={()=>{navigate("/problems")}} className="mt-5 geist-sans">
