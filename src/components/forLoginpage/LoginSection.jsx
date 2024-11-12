@@ -42,7 +42,7 @@ export const LoginSection = () => {
         console.log("user=>", user);
 
         
-        var toastId = toast.loading("Authenticating ...");
+        var toastId = toast.loading("Authenticating ...", process.env.REACT_APP_FIREBASE_AUTH_DOMAIN);
 
         try{
         const provider = new GoogleAuthProvider()
