@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/iframe-has-title */
 "use client";
 
 import React, { useState } from "react";

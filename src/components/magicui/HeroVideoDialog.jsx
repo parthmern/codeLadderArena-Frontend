@@ -7,15 +7,15 @@ export function HeroVideoDialogBox() {
       <HeroVideoDialog
         className="dark:hidden block"
         animationStyle="from-center"
-        videoSrc="https://www.youtube.com/embed/qh3NGpYRG3I?si=4rb-zSdDkVK9qxxb"
-        thumbnailSrc="https://startup-template-sage.vercel.app/hero-light.png"
+        videoSrc="https://www.youtube.com/embed/AW8WMh3S7G4"
+        thumbnailSrc="https://res.cloudinary.com/dncm3mid4/image/upload/v1731522042/githubreadme/fae5stjqrabjlkn6gooq.png"
         thumbnailAlt="Hero Video"
       />
       <HeroVideoDialog
         className="hidden dark:block"
         animationStyle="from-center"
-        videoSrc="https://www.youtube.com/embed/qh3NGpYRG3I?si=4rb-zSdDkVK9qxxb"
-        thumbnailSrc="https://startup-template-sage.vercel.app/hero-dark.png"
+        videoSrc="https://www.youtube.com/embed/AW8WMh3S7G4"
+        thumbnailSrc="https://res.cloudinary.com/dncm3mid4/image/upload/v1731522042/githubreadme/fae5stjqrabjlkn6gooq.png"
         thumbnailAlt="Hero Video"
       />
     </div>

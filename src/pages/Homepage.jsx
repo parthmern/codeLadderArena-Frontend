@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 import React, { useEffect } from "react";
 import { Navbar } from "../components/common/Navbar";
 import { Spotlight } from "../components/accernity/Spotlight";
